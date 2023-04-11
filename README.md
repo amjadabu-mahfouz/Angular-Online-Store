@@ -19,10 +19,10 @@ Run cert/securityTest.js then
 Launch chrome and go to “https://localhost:3000”. 
 In Chrome Dev tools go to security panel > view certificate > details > export  (** save it as a .cer file **) 
 
-### 3) add custom cert to list of trusted root CAs
-Go to chrome settings > security > manage device certificates > trusted root certification authorities tab(in certificates window) > import (then import the .cer file made in the previous step)
+### 3) Add custom cert to list of trusted root CAs
+Go to chrome settings > security > manage device certificates > trusted root certification authorities tab (in certificates window) > import (then import the .cer file made in the previous step)
  
-### When launching the angular app, use the following command 
+## When launching the angular app, use the following command 
 ```
 ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 ```
