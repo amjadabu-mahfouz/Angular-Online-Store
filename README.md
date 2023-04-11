@@ -3,7 +3,7 @@
 ```
 npm install -g @angular/cli 
 ng new my-app-name 
-```\
+```
 
 # Set Up Certificate Authority
 In order to properly use the app on localhost, it needs to be running over https or otherwise the cookies wont be sent.
