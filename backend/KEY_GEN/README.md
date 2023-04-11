@@ -1,4 +1,4 @@
-# Generate a key pair
+# Generate a key pair (used for JWT)
 ```
 C:\"Program Files"\Git\usr\bin\openssl.exe genrsa -des3 -out private.pem 2048
 
