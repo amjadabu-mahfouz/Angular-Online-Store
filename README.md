@@ -51,7 +51,7 @@ ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 
 
 
-### if successful, the result should look like this ... <br/>
+### if successful, the result should look like this ... <br/> <br/>
 ![Product Categories](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/categoriesPage.png)
 ![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/catalogPage.png)
 ![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/loginPage1.png)
