@@ -47,3 +47,4 @@ ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 ### 4) open a web browser and to to "https://localhost:4200"
 
 ### if successful, the result should look like this ...
+![](src/assets/"angular app pics"/categoriespage.png)
