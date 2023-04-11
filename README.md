@@ -52,3 +52,7 @@ ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 ![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/loginPage1.png)
 ![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/loginPage2.png)
 ![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/cartPage1.png)
+![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/cartPage2.png)
+![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/cartPage3.png)
+![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/cartPage4.png)
+![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/cartPage5.png)
