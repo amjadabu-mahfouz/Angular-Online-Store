@@ -47,9 +47,11 @@ node backend.js
 ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 
 ```
-### 4) open a web browser and to to "https://localhost:4200"
+### 4) open a web browser and to to "https://localhost:4200" <br/>
 
-### if successful, the result should look like this ...
+
+
+### if successful, the result should look like this ... <br/>
 ![Product Categories](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/categoriesPage.png)
 ![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/catalogPage.png)
 ![](https://github.com/amjadabu-mahfouz/Angular-Online-Store/blob/main/src/assets/angular%20app%20pics/loginPage1.png)
