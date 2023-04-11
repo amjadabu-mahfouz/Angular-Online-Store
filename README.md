@@ -27,5 +27,20 @@ Go to chrome settings > security > manage device certificates > trusted root cer
 ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 ```
 
+### **Lastly, the fafa Icons installation & importing instructions can be found at src/app/fafa_installation.txt
 
 
+
+
+
+# Launching The App
+## 1) Install all node dependencies 
+## 2) Run backend/backend.js
+```
+node backend.js
+```
+## 3) Run the angular application in ssl mode
+```
+ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
+
+```
