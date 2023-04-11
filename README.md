@@ -17,8 +17,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.p
 ### 2 ) Register the self-signed certificate as a CA trusted certificate authority
 Run cert/securityTest.js then
 Launch chrome and go to “https://localhost:3000”. 
-In Chrome Dev tools...
-	- go to security panel > view certificate > details > export  (** save it as a .cer file **) 
+In Chrome Dev tools go to security panel > view certificate > details > export  (** save it as a .cer file **) 
 
 ### 3) add custom cert to list of trusted root CAs
 Go to chrome settings > security > manage device certificates > trusted root certification authorities tab(in certificates window) > import (then import the .cer file made in the previous step)
