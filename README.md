@@ -34,13 +34,16 @@ ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 
 
 # Launching The App
-## 1) Install all node dependencies 
-## 2) Run backend/backend.js
+### 1) Install all node dependencies 
+### 2) Run backend/backend.js
 ```
 node backend.js
 ```
-## 3) Run the angular application in ssl mode
+### 3) Run the angular application in ssl mode
 ```
 ng s -o --ssl true --ssl-key <path to .key file>  --ssl-cert <path to .crt file>
 
 ```
+### 4) open a web browser and to to "https://localhost:4200"
+
+### if successful, the result should look like this ...
