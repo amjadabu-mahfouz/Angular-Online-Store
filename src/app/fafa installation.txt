@@ -1,0 +1,39 @@
+npm install @fortawesome/fontawesome-svg-core
+npm install @fortawesome/free-brands-svg-icons
+npm install @fortawesome/free-regular-svg-icons
+npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/angular-fontawesome
+
+npm install -g yarn
+
+yarn add @fortawesome/fontawesome-svg-core
+yarn add @fortawesome/free-brands-svg-icons
+yarn add @fortawesome/free-regular-svg-icons
+yarn add @fortawesome/free-solid-svg-icons
+yarn add @fortawesome/angular-fontawesome
+
+
+ng add @fortawesome/angular-fontawesome
+
+
+//in app.module.ts
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+//add it to the imports array
+FontAwesomeModule
+
+
+
+
+// in component.ts import the fa icon you want with this line
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+//initialize it in the class
+myIcon = faStar;
+
+
+//use the icon in the component.html
+<fa-icon [icon]="myIcon"></fa-icon>
+
+
+
+

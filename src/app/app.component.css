@@ -1,0 +1,17 @@
+body{
+	margin: 0;
+}
+
+
+.headerButton{
+	width: 100px;
+	height: 90%;
+	background-color: #08719f;
+	color: #FFFF;
+	border-radius: 7px;
+	
+}
+
+.headerButton:hover{
+	cursor: pointer;
+}

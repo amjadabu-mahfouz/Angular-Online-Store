@@ -1,0 +1,279 @@
+<div style="width: 100%; height: 50px;">
+</div>
+
+
+
+<!-- CART ITEMS WRAPPER -->
+<form  [formGroup]="fg" *ngIf="checkoutBTN" (ngSubmit)="goToCheckout()" class="flex"  style="width: 100%;">
+	
+	<!-- CART ITEM WRAPPER -->
+	<div *ngFor="let x of returnedProducts; let i = index;" class="flex cart_item_wrapper" style="">
+		
+			<!-- CART ITEM IMAGE -->
+			<div class="flex" style="width: 150px; height: 150px; background-image: url('../../assets/product_images/{{x.img}}'); background-size: 100% 100%;">
+			</div>
+	
+			<!-- CART ITEM NAME -->
+			<div class="flex cart_item_name" style="">
+				{{x.product_name}}
+			</div>
+			
+			
+			<div class="flex" style=" min-width: 300px; width: 50%; justify-content: flex-end;">
+				<!-- CART QUANTITY -->
+				<input formControlName="product{{i}}" [(ngModel)]="x.qty" (ngModelChange)="disableInput(i)"  type="number" min="0" max="999" style="width: 80px; height: 30px; text-align: center; font-size: 25px;">
+			
+				<!-- CART ITEM PRICE -->
+				<div class="flex cart_item_price" style="">
+					{{x.price * x.qty | currency}}
+				</div>
+				
+			
+			</div>
+			
+			<!-- CART REMOVE ITEM -->
+			<div class="flex" style="width: 150px; height: 150px; justify-content: flex-end;">
+				<div class="flex btn_hover cart_item_remove_btn" (click)='removeItem(x.id)' style="">
+					Remove
+				</div>
+			</div>
+	
+	</div>
+	<!-- CART TOTAL --> 
+	<div class="flex cart_total" style="">
+		TOTAL: &nbsp; {{getTotalPrice() | currency}}
+	</div>
+	
+	
+	<button class="cart_checkout_btn btn_hover" *ngIf="fg.valid && checkoutBTN" type="submit" [disabled]="!fg.valid" style="height: 40px;">
+		Proceed to Checkout
+	</button>
+	
+	
+</form>
+
+
+
+<!-- EMPTY SHOPPING CART -->
+<div class="flex" *ngIf="(!(checkoutBTN)&&  !checkoutSubmit)" style="width: 100%; height: 36vh;">
+	<fa-icon [icon]="cartIcon"  class="flex" style="width: 14%; height: 50%; margin-right: 1%; font-size: 100px; color: grey; margin-top: 10%;" ></fa-icon >
+	
+	<div class="flex" style="width: 100%; height: 50%;">
+		<div class="" style="width: 100%; height: 50%; font-size: 50px; color: grey; text-align: center;">
+			Shopping Cart Is Empty
+		</div>
+		
+		<div class="flex btn_hover" routerLink="/product-catalog/everything" style="width: 160px; height: 22%; font-size: 20px; color: #ffff; border: 1px solid black; background-color: orange; border-radius: 6px;">
+			Browse Products
+		</div>
+	</div>
+	
+</div>
+
+
+<div style="height: 5vh; width: 100%;">
+</div>
+
+
+
+<!-- CART CHECKOUT SECTION -->
+<div class="flex" *ngIf="checkoutSubmit" style="width: 100%;">
+
+	<!-- CHECKOUT FORM -->
+	<form [formGroup]="fgCheckout" (ngSubmit)="userCheckout()" class="flex cart_checkout_form" style="">
+			<div class="" style="width: 50%; height: 100px; font-size: 25px;">
+				Billing Address			
+			</div>
+			<div class="" style="width: 50%; height: 100px; font-size: 25px;">
+				Payment Info
+			</div>
+			
+			<div class="flex" style="width: 50%; height: 100px;">
+			
+				<div class="flex" style="width: 100%;  height: 40px; align-items: flex-end;">
+					<fa-icon [icon]="userIcon"  class="flex" style="width: 10%;" ></fa-icon >
+					<div style="width: 90%;"> 
+						Full Name
+					</div> 
+				</div>
+				<input formControlName="FullName" minlength="3"  style="width: 50%; height: 30px; text-align: left; font-size: 25px;">
+				<div style="width: 45%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('FullName')" style="font-size: 10px;"> Full name is invalid </label>	
+				</div>
+				
+			</div>
+			<div class="flex" style="width: 50%; height: 100px;">
+				
+				<div class="flex" style="width: 100%; justify-content: flex-start;">
+					<div style="width: 100%; margin-bottom: 5px;">
+						Accepted Cards 
+					</div>
+					<div class="flex" style="width: 100%; align-items: flex-end; justify-content: flex-start;">
+						<fa-icon [icon]="visaIcon"  class="flex" style="width: 10%; font-size: 30px; margin-right: 10px;" ></fa-icon >
+						<fa-icon [icon]="amexIcon"  class="flex" style="width: 10%; font-size: 30px; margin-right: 10px;" ></fa-icon >
+						<fa-icon [icon]="mastercardIcon"  class="flex" style="width: 10%; font-size: 30px; margin-right: 10px;" ></fa-icon >
+						<fa-icon [icon]="discoverIcon"  class="flex" style="width: 10%; font-size: 30px; margin-right: 10px;" ></fa-icon >
+					</div>
+				</div>
+	
+			</div>
+			
+			
+			
+			<div class="flex" style="width: 50%; height: 100px;">
+			
+				<div class="flex" style="width: 100%; height: 40px; align-items: flex-end;">
+					<fa-icon [icon]="mailIcon"  class="flex" style="width: 10%;" ></fa-icon >
+					<div style="width: 90%;"> 
+						Email
+					</div> 
+				</div>
+				<input formControlName="Email" minlength="3"  style="width: 50%; height: 30px; text-align: left; font-size: 25px;">
+				<div style="width: 45%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('Email')" style="font-size: 10px;"> Email is invalid </label>	
+				</div>
+				
+			</div>
+			<div class="flex" style="width: 50%; height: 100px;">
+			
+				<div class="flex" style="width: 100%; height: 40px; align-items: flex-end;">
+					<div style="width: 100%;"> 
+						Credit Card Number
+					</div> 
+				</div>
+				<input formControlName="CardNumber"  style="text-transform: uppercase; width: 70%; height: 30px; text-align: left; font-size: 25px;">
+				<div style="width: 25%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('CardNumber')" style="font-size: 10px;"> Card number is invalid </label>	
+				</div>
+				
+			</div>
+			
+				
+				
+			<div class="flex" style="width: 50%; height: 100px;">
+			
+				<div class="flex" style="width: 100%; height: 40px; align-items: flex-end;">
+					<fa-icon [icon]="addressIcon"  class="flex" style="width: 10%;" ></fa-icon >
+					<div style="width: 90%;"> 
+						Address
+					</div> 
+				</div>
+				<input formControlName="Address" minlength="6"  style="width: 50%; height: 30px; text-align: left; font-size: 25px;">
+				<div style="width: 45%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('Address')" style="font-size: 10px;"> Address is invalid </label>	
+				</div>
+				
+			</div>
+			<div class="flex" style="width: 50%; height: 100px;">
+				
+				<div class="flex" style="width: 100%; height: 40px; align-items: flex-end;">
+					<div style="width: 100%;"> 
+						Name on Card
+					</div> 
+				</div>
+				<input formControlName="CardName" minlength="3"  style="width: 50%; height: 30px; text-align: left; font-size: 25px;">
+				<div style="width: 45%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('CardName')" style="font-size: 10px;"> Name is invalid </label>	
+				</div>
+				
+			</div>
+					
+
+					
+			<div class="flex" style="width: 50%; height: 100px;">
+			
+				<div class="flex" style="width: 100%; height: 40px; align-items: flex-end;">
+					<fa-icon [icon]="cityIcon"  class="flex" style="width: 10%;" ></fa-icon >
+					<div style="width: 90%;"> 
+						City
+					</div> 
+				</div>
+				<input formControlName="City" minlength="3"  style="width: 50%; height: 30px; text-align: left; font-size: 25px;">
+				<div style="width: 45%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('City')" style="font-size: 10px;"> City is invalid </label>	
+				</div>
+				
+			</div>
+			<div class="flex" style="width: 50%; height: 100px; justify-content: flex-start;">
+			
+				<div class="flex" style="width: 100%; height: 40px; align-items: flex-end;">
+					<div style="width: 100%;"> 
+						Exp Month
+					</div> 
+				</div>
+				<input formControlName="ExpMonth"  style="text-transform: uppercase; width: 30%; height: 30px; text-align: left; font-size: 25px;">
+				<div style="width: 45%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('ExpMonth')" style="font-size: 10px;">Expiration month is invalid </label>	
+				</div>
+				
+			</div>
+			
+							
+				<!--LAST ROW-->			
+			<div class="flex" style="width: 50%; height: 100px; justify-content: space-between;">
+			
+				<div class="flex" style="width: 45%; height: 40px; align-items: flex-end;">
+					<div style="width: 100%;"> 
+						Province/State
+					</div> 
+				</div>
+				
+				<div class="flex" style="width: 50%; height: 40px; align-items: flex-end;">
+					<div style="width: 100%;"> 
+						Zip
+					</div> 
+				</div>
+			
+				<input formControlName="Province" minlength="2" maxlength="2" style="width: 20%; height: 30px; text-align: left; font-size: 25px;">
+				<input formControlName="Zip"  style="text-transform:uppercase; width: 35%; height: 30px; text-align: left; font-size: 25px; margin-right: 12%;">
+				
+				<div style="width: 45%;">
+					<label *ngIf="!checkValidControl('Province')" style="font-size: 10px;"> State must be 2 characters </label>	
+				</div>
+				
+				
+				<div style="width: 50%; margin-left: 2%;">
+					<label *ngIf="!checkValidControl('Zip')" style="font-size: 10px;"> Zip is invalid </label>	
+				</div>
+				
+			</div>
+			<div class="flex" style="width: 50%; height: 100px; justify-content: space-between;">
+			
+				<div class="flex" style="width: 45%; height: 40px; align-items: flex-end;">
+					<div style="width: 100%;"> 
+						Exp. Year
+					</div> 
+				</div>
+				
+				<div class="flex" style="width: 50%; height: 40px; align-items: flex-end;">
+					<div style="width: 100%;"> 
+						CCV
+					</div> 
+				</div>
+			
+				<input formControlName="ExpYear" maxlength="4" style="width: 35%; height: 30px; text-align: left; font-size: 25px;">
+				<input formControlName="CCV" maxlength="3" style="width: 35%; height: 30px; text-align: left; font-size: 25px;  margin-right: 15%; ">
+				
+				<div style="width: 50%; ">
+					<label *ngIf="!checkValidControl('ExpYear')" style="font-size: 10px;"> Exp. year is invalid </label>	
+				</div>
+				
+				
+				<div style="width: 50%; ">
+					<label *ngIf="!checkValidControl('CCV')" style="font-size: 10px;"> CCV is invalid </label>	
+				</div>
+				
+			</div>				
+							
+			
+			<div class="flex" style="width: 100%; height: 100px; align-items: flex-end;">
+			
+				<button type="submit" class="flex btn_hover" [disabled]="!fgCheckout.valid" style="width: 100%; height: 50%; border: 1px solid black;">
+					Checkout
+				</button>
+			
+			</div>
+			
+	</form>
+	
+</div>

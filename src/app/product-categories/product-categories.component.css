@@ -1,0 +1,35 @@
+.product_category{
+	z-index: 2;
+	overflow: hidden;
+	transition: 1s;
+}
+
+.product_category_darken{
+	background-color: #00000000;
+	transition: 1s;
+}
+
+.product_category_img{
+	height: 100%; 
+	width: 100%;
+	transition: 1s;
+}
+
+.product_category_text{
+	color: #000;
+	font-size: 30px;
+	font-weight: 600;
+	transition: 1s;
+}
+
+/**ON HOVER TRANSITIONS**/
+.product_category:hover .product_category_img{
+	width: 120%;
+	height: 120%;
+}
+.product_category:hover .product_category_darken{
+	background-color: #00000073;
+}
+.product_category:hover .product_category_text{
+	color: #FFFF;
+}

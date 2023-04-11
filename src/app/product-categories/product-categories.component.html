@@ -1,0 +1,26 @@
+<!--  PRODUCT SELECTION  -->
+
+<h1 class="flex" style="width: 100%; height:20vh; font-size: 36px; font-weight: 600; font-size: 40px;">
+	{{"Product Categories" | uppercase}}
+</h1>
+
+<div class="flex" style="width: 100%;">
+
+	<div  class="flex" style="width: 100%; max-width: 900px; min-width: 320px; margin-bottom: 10vh;">
+
+		<div *ngFor="let x of prodCat"  routerLink="/product-catalog/{{x.name}}" class="flex btn_hover item_border product_category" style="position: relative; width: 300px; height: 30vh; margin: 10px;">
+			<div class="product_category_img" style="position: absolute; background-image: url('../../assets/category_images/{{x.img}}'); background-size: 100% 100%;">	
+			</div>
+			
+			<div class="product_category_darken" style="position: absolute; height: 100%; width: 100%;">
+			</div>
+			
+			<div class="product_category_text" style="z-index: 1;">
+				{{x.name | uppercase}}
+			</div>
+		</div>
+		
+	</div>
+	
+</div>	
+

@@ -1,0 +1,22 @@
+.form_input{
+	width: 50%; 
+	height: 30px; 
+	text-align: left; 
+	font-size: 25px;
+}
+
+.form_input_warning{
+	width: 45%;
+	margin-left: 2%;
+	font-size: 10px;	
+}
+
+
+.create_login_button{
+	width: 70px; 
+	height: 30px;
+	border: 1px solid black;
+	background-color: #2193b5; 
+	border-radius: 6px;
+	color: #ffff;
+}

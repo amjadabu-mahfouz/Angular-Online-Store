@@ -1,0 +1,42 @@
+	body{
+		margin: 0;
+	}
+	
+	.flex{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	
+	
+	.btn_hover{
+	}
+	
+	.btn_hover:hover{
+		cursor: pointer;
+	}
+	
+	.text_wrapper{
+		text-align: left;
+		font-size: 16px;
+		font-weight: 600;
+		
+	}
+	
+	
+	.item_border{
+		border: 1px solid #b7b4b4;
+	}
+	
+	.product_wrapper{
+		
+		padding-top: 3px;
+		border-radius: 7px;
+		box-shadow: 0px 0px 7px 1px #bfbaba;
+		margin: 10px;
+	}
+	
+	.checked{
+		color: #ffb100;
+	}
